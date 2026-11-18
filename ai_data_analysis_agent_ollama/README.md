@@ -47,6 +47,14 @@ streamlit run ai_data_analyst.py
 
 在网页侧边栏确认 Ollama 地址和模型名，上传 CSV / Excel 后即可提问。
 
+### 5. 示例数据与提问
+
+仓库内 `sample_data.csv` 为示例销售数据（2026 年 1–2 月，3 城 × 3 品类，共 18 行），字段：`Date`、`City`、`Category`、`Revenue`、`Orders`、`AvgOrderValue`、`ProfitMargin`。可直接上传测试，例如提问：
+
+- 哪个城市的总销售额最高？
+- 电子产品的平均利润率是多少？
+- 各月销售额趋势如何？
+
 ## 可选：更换模型
 
 - 直接在界面侧边栏的 `Model` 输入框填写已拉取的模型名；
