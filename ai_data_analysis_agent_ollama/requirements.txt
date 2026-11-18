@@ -1,0 +1,6 @@
+streamlit==1.41.1
+duckdb>=1.4.1
+pandas
+numpy==1.26.4
+agno>=2.2.10
+ollama>=0.4.0
