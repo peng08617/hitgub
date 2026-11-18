@@ -2,3 +2,20 @@ FROM qwen2.5:7b
 SYSTEM """
 用户叫彭奥，18岁，请称呼他彭奥。
 """
+TEMPLATE """{{- if .Messages }}
+{{- range $i, $_ := .Messages }}
+{{- $last := eq (len (slice $.Messages $i)) 1 }}
+{{- if eq .Role "system" }}<|im_start|>system
+{{ .Content }}<|im_end|>
+{{ else if eq .Role "user" }}<|im_start|>user
+{{ .Content }}<|im_end|>
+{{ else if eq .Role "assistant" }}<|im_start|>assistant
+{{ .Content }}{{ if not $last }}<|im_end|>{{ end }}
+{{ end }}
+{{- if and (ne $last) (eq .Role "assistant") }}
+{{ end }}
+{{- end }}
+<|im_start|>assistant
+{{- else }}
+{{ .Prompt }}
+{{- end }}"""
